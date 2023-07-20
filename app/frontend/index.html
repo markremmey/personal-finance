@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <title>My CSV Viewer</title>
+</head>
+<body>
+    <button onclick="getNextRecord()">Get Next Record</button>
+    <div id="record"></div>
+
+    <script>
+        function getNextRecord() {
+            fetch('http://localhost:5000/get_record')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('record').innerHTML = JSON.stringify(data);
+                });
+        }
+    </script>
+</body>
+</html>
