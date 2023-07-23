@@ -1,6 +1,4 @@
-# DO NOT include azure-functions-worker in this file
-# The Python Worker is managed by Azure Functions platform
-# Manually managing azure-functions-worker may cause unexpected issues
-
-azure-functions
+Flask==1.1.2
+flask_cors
+gunicorn==20.0.4
 pandas
