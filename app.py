@@ -22,4 +22,4 @@ def get_record():
         return jsonify({"error": "No more records"}), 404
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run() #debug=True
