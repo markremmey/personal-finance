@@ -1,12 +1,15 @@
 from flask import Flask, jsonify
 import pandas as pd
 from flask_cors import CORS
+import logging
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
 app = Flask(__name__)
 CORS(app)
 
 # Load the CSV file into a DataFrame
-df = pd.read_csv('../../data/transactions.csv')
+df = pd.read_csv('./data/transactions.csv')
 records = df.to_dict('records')
 current_record = -1
 
