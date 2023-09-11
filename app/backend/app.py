@@ -1,8 +1,14 @@
+from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 import pandas as pd
 from flask_cors import CORS
 import logging
 import csv
+import openai
+import os
+from prompts.prompts import generate_prompt
+
+load_dotenv('../../')
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
@@ -36,6 +42,22 @@ def write_records_to_csv(records):
         writer = csv.writer(f)
         for record_id, label in records.items():
             writer.writerow([record_id, label])
+
+@app.route('/get_prediction', methods=['POST'])
+def get_prediction():
+    description = request.form.get('description')
+    categories = request.form.get('categories')
+    prompt = generate_prompt(description, categories)
+
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    prediction = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=prompt,
+        max_tokens=7,
+        temperature=0
+    )
+
+    return prediction
 
 @app.route('/get_record', methods=['GET'])
 def get_record():

@@ -1,0 +1,13 @@
+.record {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 400px;
+    white-space: normal;
+    background-color: #f9f9f9;
+  }
+  
+  .record div {
+    margin-bottom: 5px;
+  }
+  
