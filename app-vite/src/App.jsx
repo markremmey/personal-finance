@@ -1,3 +1,4 @@
+import './App.css';
 import React, { useState } from 'react';
 import Record from './components/Record'
 import Categories from './components/Categories'
@@ -5,7 +6,7 @@ import Categories from './components/Categories'
 function App() {
   const [currentRecordId, setCurrentRecordId] = useState(null);
   const [recordData, setRecordData] = useState(null);
-  const [currentRecord, setCurrentRecord] = useState(null);
+  // const [currentRecord, setCurrentRecord] = useState(null);
   
   const getNextRecord = () => {
     fetch('http://localhost:5000/get_record')
@@ -39,20 +40,15 @@ function App() {
   };
 
   return (
-    <div>
-
-        <div className="App">
-          <button onClick={getNextRecord}>Get Next Record</button>
-          
-          <div id="record" style={{ whiteSpace: 'pre-wrap' }}>
-            {recordData}
-          </div>
-
-          {/* <Record record={currentRecord} /> */}
-          <Categories classifyRecord={classifyRecord} />
+      <div className="App">
+        <button onClick={getNextRecord}>Get Next Transaction</button>
+        
+        <div id="record" style={{ whiteSpace: 'pre-wrap' }}>
+          <Record record={recordData} />
         </div>
-      
-      </div>
+
+        <Categories classifyRecord={classifyRecord} />
+      </div>      
   );
 }
 
