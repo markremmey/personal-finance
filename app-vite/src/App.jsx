@@ -44,7 +44,6 @@ function App() {
         <div className="App">
           <button onClick={getNextRecord}>Get Next Record</button>
           
-
           <div id="record" style={{ whiteSpace: 'pre-wrap' }}>
             {recordData}
           </div>
@@ -83,4 +82,5 @@ export default App;
           <button onClick={() => classifyRecord('Home Improvement')}>Home Improvement</button>
           <button onClick={() => classifyRecord('Subscriptions')}>Subscriptions</button>
           <button onClick={() => classifyRecord('Utilities')}>Utilities</button>
-        </div> */}
+        </div>
+       */}
