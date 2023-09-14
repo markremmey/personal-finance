@@ -3,11 +3,20 @@ import React, { useState } from 'react';
 import Record from './components/Record'
 import Categories from './components/Categories'
 
+const x = "test"
+console.log(x)
+
 function App() {
   const [currentRecordId, setCurrentRecordId] = useState(null);
   const [recordData, setRecordData] = useState(null);
   // const [currentRecord, setCurrentRecord] = useState(null);
   
+  // gets Next Record, the following function calls the local host
+  // endpoint to get the next record. Then, it converts the reponse to a JSON
+  // object and sets the current record to the response.
+
+
+  // This function is invoked when the "Get Next Record" button is clicked.
   const getNextRecord = () => {
     fetch('http://localhost:5000/get_record')
       .then(response => response.json())
@@ -16,6 +25,7 @@ function App() {
         setRecordData(JSON.stringify(data, null, 2));
       });
   };
+  console.log("recordData", recordData);
 
   const classifyRecord = (category) => {
     if (currentRecordId) {
@@ -26,6 +36,7 @@ function App() {
         },
         body: new URLSearchParams({
           id: currentRecordId,
+          description: recordData,
           label: category,
         }),
       })
@@ -44,39 +55,12 @@ function App() {
         <button onClick={getNextRecord}>Get Next Transaction</button>
         
         <div id="record" style={{ whiteSpace: 'pre-wrap' }}>
-          <Record record={recordData} />
+          <Record record={recordData} getNextRecord={getNextRecord} />
         </div>
 
         <Categories classifyRecord={classifyRecord} />
-      </div>      
+      </div>
   );
 }
 
 export default App;
-
-
-{/* <div className="App">
-        <button onClick={getNextRecord}>Get Next Record</button>
-        <Record record={currentRecord} />
-        <Categories classifyRecord={classifyRecord} />
-      </div> */}
-      
-      {/* Version 2 of the "Get Next Record Button" This should set the value of recordData, which will be referenced in the next div */}
-      {/* <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh', textAlign: 'center' }}>
-        <button onClick={getNextRecord}>Get Next Record</button> */}
-                  
-        {/* This div is for the "Record" display, but this will be ommitted for the imported Record.
-        However, We will comment this out so that we can have this rendered above   */}
-        {/* <div id="record" style={{ whiteSpace: 'pre-wrap' }}>
-          {recordData}
-        </div> */}
-
-        {/* This div is for the category buttons that appear below the "Get Next Record" button.
-        However, We will comment this out so that we can have this rendered above         */}
-        {/* <div id="categories">
-          <button onClick={() => classifyRecord('Groceries')}>Groceries</button>
-          <button onClick={() => classifyRecord('Home Improvement')}>Home Improvement</button>
-          <button onClick={() => classifyRecord('Subscriptions')}>Subscriptions</button>
-          <button onClick={() => classifyRecord('Utilities')}>Utilities</button>
-        </div>
-       */}

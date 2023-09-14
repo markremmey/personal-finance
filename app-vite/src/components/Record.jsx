@@ -1,17 +1,23 @@
-import React from 'react';
-import './Record.css';
+import React, { useEffect } from 'react';
+// import './Record.css';
 
-function Record({ record }) {
+
+function Record({ record, getNextRecord }) {
+  
+  useEffect(() => {
+    getNextRecord();
+    }, []);
+  
   if (!record) return null;
 
   const data = JSON.parse(record);
   
   return (
     <div className="record">
-    {Object.keys(data).map((key) => (
-      <div key={key}><strong>{key.replace(/_/g, ' ')}:</strong> {data[key]}</div>
-    ))}
-  </div>
+      {Object.keys(data).map((key) => (
+        <div key={key}><strong>{key.replace(/_/g, ' ')}:</strong> {data[key]}</div>
+      ))}
+    </div>
   );
 }
 

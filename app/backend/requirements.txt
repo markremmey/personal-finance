@@ -1,7 +1,9 @@
-
+azure-cosmos
+azure-identity
+openai
 Flask
 flask_cors
 gunicorn
 pandas
 python-dotenv
-logs
+#logging

@@ -1,0 +1,41 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Edge Debugger",
+            "url": "http://localhost:5173",
+            "webRoot": "/mnt/c/Users/markremmey/sandbox/personal_finance/app-vite/src" //"C:\\Users\\markremmey\\sandbox\\my-app\\src"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:5173",
+            "webRoot": "/mnt/c/Users/markremmey/sandbox/personal_finance/app-vite/src" //"C:\\Users\\markremmey\\sandbox\\my-app\\src"
+        }, 
+        {
+            "name": "Python: Flask",
+            "type": "python",
+            "request": "launch",
+            // "module": "flask",
+            "python": "/mnt/c/Users/markremmey/sandbox/personal_finance/myenv/bin/python", //C:\Python311\python.exe "/mnt/c/Users/markremmey/sandbox/personal_finance/myenv/bin/python","C:\Python311\python.exe", 
+            "env": {
+                "FLASK_APP": "app.py",
+                "FLASK_DEBUG": "1"
+            },
+            "args": [
+                "run",
+                // "--no-debugger",
+                // "--no-reload"
+            ],
+            "jinja": true,
+            "justMyCode": true,
+            "cwd": "/mnt/c/Users/markremmey/sandbox/personal_finance/app/backend"
+        }
+    ]
+}
