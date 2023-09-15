@@ -1,5 +1,5 @@
 # personal-finance
-Application to categorize personal finance transactions and generate reports
+Application to aggregate personal finance transactions, classify using LLMs, and perform data analysis and visualization 
 
 # To do:
 - Finish GH Actions pipeline
