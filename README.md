@@ -1,4 +1,4 @@
-# personal-finance
+# personal-finance-app
 Application to aggregate personal finance transactions, classify using LLMs, and perform data analysis and visualization 
 
 # To do:
