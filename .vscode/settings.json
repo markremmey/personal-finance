@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/58360d6a-cbcb-4991-83ad-0466b411a59e/resourceGroups/finance-app/providers/Microsoft.Web/sites/get-transaction",
-    "appService.deploySubpath": "."
-}
