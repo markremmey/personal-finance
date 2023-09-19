@@ -22,11 +22,15 @@
             "name": "Python: Flask",
             "type": "python",
             "request": "launch",
-            // "module": "flask",
-            "python": "/mnt/c/Users/markremmey/sandbox/personal_finance/myenv/bin/python", //C:\Python311\python.exe "/mnt/c/Users/markremmey/sandbox/personal_finance/myenv/bin/python","C:\Python311\python.exe", 
+            "module": "flask",
+            "python": "/mnt/c/Users/markremmey/sandbox/personal_finance/.venv/bin/python", //C:\Python311\python.exe "/mnt/c/Users/markremmey/sandbox/personal_finance/myenv/bin/python","C:\Python311\python.exe", , "/mnt/c/Users/markremmey/sandbox/personal_finance/.venv/bin/python", "C:\\Python311\\python.exe"
+            "pythonArgs": ["-Xfrozen_modules=off"],
+            "console": "integratedTerminal",
             "env": {
                 "FLASK_APP": "app.py",
-                "FLASK_DEBUG": "1"
+                "FLASK_DEBUG": "1",
+                "PYDEVD_DISABLE_FILE_VALIDATION": "1",
+                "FLASK_ENV": "development",
             },
             "args": [
                 "run",
@@ -35,7 +39,7 @@
             ],
             "jinja": true,
             "justMyCode": true,
-            "cwd": "/mnt/c/Users/markremmey/sandbox/personal_finance/app/backend"
+            "cwd": "/mnt/c/Users/markremmey/sandbox/personal_finance/app/backend" // "C:\\Users\\markremmey\\sandbox\\personal_finance\\app\\backend"// "/mnt/c/Users/markremmey/sandbox/personal_finance/app/backend"
         }
     ]
 }

@@ -3,12 +3,14 @@ import React, { useState } from 'react';
 import Record from './components/Record'
 import Categories from './components/Categories'
 
-const x = "test"
-console.log(x)
+import FileUploadComponent from './components/Upload';
+
 
 function App() {
   const [currentRecordId, setCurrentRecordId] = useState(null);
   const [recordData, setRecordData] = useState(null);
+  const [fileUploaded, setFileUploaded] = useState(false);
+
   // const [currentRecord, setCurrentRecord] = useState(null);
   
   // gets Next Record, the following function calls the local host
@@ -51,16 +53,23 @@ function App() {
   };
 
   return (
-      <div className="App">
-        <button onClick={getNextRecord}>Get Next Transaction</button>
-        
-        <div id="record" style={{ whiteSpace: 'pre-wrap' }}>
-          <Record record={recordData} getNextRecord={getNextRecord} />
-        </div>
-
-        <Categories classifyRecord={classifyRecord} />
-      </div>
+    <div className="App">
+      {!fileUploaded ? (
+        <FileUploadComponent onFileUploadSuccess={() => setFileUploaded(true)} />
+      ) : (
+        <>
+          <button onClick={getNextRecord}>Get Next Transaction</button>
+          
+          <div id="record" style={{ whiteSpace: 'pre-wrap' }}>
+            <Record record={recordData} getNextRecord={getNextRecord} />
+          </div>
+  
+          <Categories classifyRecord={classifyRecord} />
+        </>
+      )}
+    </div>
   );
+  
 }
 
 export default App;

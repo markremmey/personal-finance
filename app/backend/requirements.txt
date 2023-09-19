@@ -1,5 +1,6 @@
 azure-cosmos
 azure-identity
+azure-storage-blob
 openai
 Flask
 flask_cors

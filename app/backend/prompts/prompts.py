@@ -2,15 +2,14 @@ import azure.cosmos.exceptions as exceptions
 from azure.cosmos import CosmosClient, PartitionKey
 
 from dotenv import load_dotenv
-# from flask import Flask, jsonify, request
-# import pandas as pd
-# from flask_cors import CORS
 import os
-# import azure.cosmos
+
 
 load_dotenv('../../.env')
+from azure.identity import DefaultAzureCredential
+
 ENDPOINT = os.getenv("COSMOSDB_ENDPOINT")
-KEY = os.getenv("COSMOSDB_KEY")
+KEY = os.environ.get("COSMOSDB_KEY")
 DATABASE_ID = os.getenv("DATABASE_ID")
 CONTAINER_ID = os.getenv("CONTAINER_ID")
 
