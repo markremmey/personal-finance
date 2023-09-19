@@ -1,10 +1,7 @@
-# personal-finance
-Application to categorize personal finance transactions and generate reports
+# personal-finance-app
+Application to aggregate personal finance transactions, classify using LLMs, and perform data analysis and visualization 
 
 # To do:
-- Create prediction API
-- Prediction API should label the remaining records automatically
-- Randomize the transactions that are provided, with a bias toward more recent transactions
-- At first just have the prediction API take in the JSON and return a prediction by calling the OpenAI endpoint
-- Then, use few shot examples 
-- Then fine-tune
+- Finish GH Actions pipeline
+- Add Drag and Drop UI
+- Add data visualization
